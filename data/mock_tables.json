@@ -1,0 +1,522 @@
+[
+  {
+    "table_id": "my-project.analytics.daily_campaign_plan",
+    "table_name": "daily_campaign_plan",
+    "table_schema": "analytics",
+    "description": "Daily marketing campaign planning data including budget allocation, target audience, and campaign schedule",
+    "columns": [
+      {
+        "column_name": "campaign_id",
+        "data_type": "STRING",
+        "description": "Unique identifier for the campaign"
+      },
+      {
+        "column_name": "campaign_date",
+        "data_type": "DATE",
+        "description": "Date when the campaign is scheduled to run"
+      },
+      {
+        "column_name": "campaign_name",
+        "data_type": "STRING",
+        "description": "Name of the marketing campaign"
+      },
+      {
+        "column_name": "budget_allocated",
+        "data_type": "FLOAT64",
+        "description": "Daily budget allocated for the campaign"
+      },
+      {
+        "column_name": "target_audience",
+        "data_type": "STRING",
+        "description": "Target audience segment"
+      },
+      {
+        "column_name": "channel",
+        "data_type": "STRING",
+        "description": "Marketing channel (e.g., email, social, display)"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.analytics.campaign_performance",
+    "table_name": "campaign_performance",
+    "table_schema": "analytics",
+    "description": "Campaign performance metrics including impressions, clicks, conversions, and ROI",
+    "columns": [
+      {
+        "column_name": "campaign_id",
+        "data_type": "STRING",
+        "description": "Campaign identifier"
+      },
+      {
+        "column_name": "date",
+        "data_type": "DATE",
+        "description": "Performance date"
+      },
+      {
+        "column_name": "impressions",
+        "data_type": "INT64",
+        "description": "Number of ad impressions"
+      },
+      {
+        "column_name": "clicks",
+        "data_type": "INT64",
+        "description": "Number of clicks"
+      },
+      {
+        "column_name": "conversions",
+        "data_type": "INT64",
+        "description": "Number of conversions"
+      },
+      {
+        "column_name": "revenue",
+        "data_type": "FLOAT64",
+        "description": "Revenue generated"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.sales.customer_orders",
+    "table_name": "customer_orders",
+    "table_schema": "sales",
+    "description": "Customer order transactions including order details, payment, and shipping information",
+    "columns": [
+      {
+        "column_name": "order_id",
+        "data_type": "STRING",
+        "description": "Unique order identifier"
+      },
+      {
+        "column_name": "customer_id",
+        "data_type": "STRING",
+        "description": "Customer identifier"
+      },
+      {
+        "column_name": "order_date",
+        "data_type": "TIMESTAMP",
+        "description": "Order timestamp"
+      },
+      {
+        "column_name": "total_amount",
+        "data_type": "FLOAT64",
+        "description": "Total order amount"
+      },
+      {
+        "column_name": "status",
+        "data_type": "STRING",
+        "description": "Order status (pending, completed, cancelled)"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.sales.product_catalog",
+    "table_name": "product_catalog",
+    "table_schema": "sales",
+    "description": "Product catalog with SKU, pricing, category, and inventory information",
+    "columns": [
+      {
+        "column_name": "product_id",
+        "data_type": "STRING",
+        "description": "Product identifier"
+      },
+      {
+        "column_name": "sku",
+        "data_type": "STRING",
+        "description": "Stock keeping unit"
+      },
+      {
+        "column_name": "product_name",
+        "data_type": "STRING",
+        "description": "Product name"
+      },
+      {
+        "column_name": "category",
+        "data_type": "STRING",
+        "description": "Product category"
+      },
+      {
+        "column_name": "price",
+        "data_type": "FLOAT64",
+        "description": "Product price"
+      },
+      {
+        "column_name": "inventory_count",
+        "data_type": "INT64",
+        "description": "Current inventory count"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.customer.user_profiles",
+    "table_name": "user_profiles",
+    "table_schema": "customer",
+    "description": "User profile information including demographics, preferences, and account details",
+    "columns": [
+      {
+        "column_name": "user_id",
+        "data_type": "STRING",
+        "description": "Unique user identifier"
+      },
+      {
+        "column_name": "email",
+        "data_type": "STRING",
+        "description": "User email address"
+      },
+      {
+        "column_name": "registration_date",
+        "data_type": "DATE",
+        "description": "Account registration date"
+      },
+      {
+        "column_name": "age",
+        "data_type": "INT64",
+        "description": "User age"
+      },
+      {
+        "column_name": "country",
+        "data_type": "STRING",
+        "description": "User country"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.customer.customer_segments",
+    "table_name": "customer_segments",
+    "table_schema": "customer",
+    "description": "Customer segmentation data based on behavior, value, and demographics",
+    "columns": [
+      {
+        "column_name": "customer_id",
+        "data_type": "STRING",
+        "description": "Customer identifier"
+      },
+      {
+        "column_name": "segment_name",
+        "data_type": "STRING",
+        "description": "Segment classification"
+      },
+      {
+        "column_name": "lifetime_value",
+        "data_type": "FLOAT64",
+        "description": "Customer lifetime value"
+      },
+      {
+        "column_name": "segment_date",
+        "data_type": "DATE",
+        "description": "Date of segmentation"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.analytics.web_analytics",
+    "table_name": "web_analytics",
+    "table_schema": "analytics",
+    "description": "Web analytics data including page views, sessions, bounce rates, and user behavior",
+    "columns": [
+      {
+        "column_name": "session_id",
+        "data_type": "STRING",
+        "description": "Session identifier"
+      },
+      {
+        "column_name": "user_id",
+        "data_type": "STRING",
+        "description": "User identifier"
+      },
+      {
+        "column_name": "page_url",
+        "data_type": "STRING",
+        "description": "Page URL"
+      },
+      {
+        "column_name": "timestamp",
+        "data_type": "TIMESTAMP",
+        "description": "Event timestamp"
+      },
+      {
+        "column_name": "event_type",
+        "data_type": "STRING",
+        "description": "Type of event (pageview, click, etc.)"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.finance.revenue_daily",
+    "table_name": "revenue_daily",
+    "table_schema": "finance",
+    "description": "Daily revenue aggregations by product, channel, and region",
+    "columns": [
+      {
+        "column_name": "date",
+        "data_type": "DATE",
+        "description": "Revenue date"
+      },
+      {
+        "column_name": "product_category",
+        "data_type": "STRING",
+        "description": "Product category"
+      },
+      {
+        "column_name": "channel",
+        "data_type": "STRING",
+        "description": "Sales channel"
+      },
+      {
+        "column_name": "region",
+        "data_type": "STRING",
+        "description": "Geographic region"
+      },
+      {
+        "column_name": "revenue",
+        "data_type": "FLOAT64",
+        "description": "Total revenue"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.finance.transaction_log",
+    "table_name": "transaction_log",
+    "table_schema": "finance",
+    "description": "Transaction logs with payment details, status, and reconciliation data",
+    "columns": [
+      {
+        "column_name": "transaction_id",
+        "data_type": "STRING",
+        "description": "Transaction identifier"
+      },
+      {
+        "column_name": "order_id",
+        "data_type": "STRING",
+        "description": "Associated order ID"
+      },
+      {
+        "column_name": "payment_method",
+        "data_type": "STRING",
+        "description": "Payment method used"
+      },
+      {
+        "column_name": "amount",
+        "data_type": "FLOAT64",
+        "description": "Transaction amount"
+      },
+      {
+        "column_name": "status",
+        "data_type": "STRING",
+        "description": "Transaction status"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.operations.inventory_snapshots",
+    "table_name": "inventory_snapshots",
+    "table_schema": "operations",
+    "description": "Daily inventory snapshots across warehouses and distribution centers",
+    "columns": [
+      {
+        "column_name": "snapshot_date",
+        "data_type": "DATE",
+        "description": "Snapshot date"
+      },
+      {
+        "column_name": "product_id",
+        "data_type": "STRING",
+        "description": "Product identifier"
+      },
+      {
+        "column_name": "warehouse_id",
+        "data_type": "STRING",
+        "description": "Warehouse identifier"
+      },
+      {
+        "column_name": "quantity_available",
+        "data_type": "INT64",
+        "description": "Available quantity"
+      },
+      {
+        "column_name": "quantity_reserved",
+        "data_type": "INT64",
+        "description": "Reserved quantity"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.marketing.email_campaigns",
+    "table_name": "email_campaigns",
+    "table_schema": "marketing",
+    "description": "Email campaign data including send details, open rates, and click-through rates",
+    "columns": [
+      {
+        "column_name": "campaign_id",
+        "data_type": "STRING",
+        "description": "Campaign identifier"
+      },
+      {
+        "column_name": "send_date",
+        "data_type": "DATE",
+        "description": "Email send date"
+      },
+      {
+        "column_name": "subject_line",
+        "data_type": "STRING",
+        "description": "Email subject line"
+      },
+      {
+        "column_name": "recipients",
+        "data_type": "INT64",
+        "description": "Number of recipients"
+      },
+      {
+        "column_name": "open_rate",
+        "data_type": "FLOAT64",
+        "description": "Email open rate"
+      },
+      {
+        "column_name": "click_rate",
+        "data_type": "FLOAT64",
+        "description": "Click-through rate"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.operations.shipping_logistics",
+    "table_name": "shipping_logistics",
+    "table_schema": "operations",
+    "description": "Shipping and logistics data including carrier, delivery times, and tracking information",
+    "columns": [
+      {
+        "column_name": "shipment_id",
+        "data_type": "STRING",
+        "description": "Shipment identifier"
+      },
+      {
+        "column_name": "order_id",
+        "data_type": "STRING",
+        "description": "Associated order ID"
+      },
+      {
+        "column_name": "carrier",
+        "data_type": "STRING",
+        "description": "Shipping carrier"
+      },
+      {
+        "column_name": "ship_date",
+        "data_type": "DATE",
+        "description": "Shipment date"
+      },
+      {
+        "column_name": "delivery_date",
+        "data_type": "DATE",
+        "description": "Delivery date"
+      },
+      {
+        "column_name": "status",
+        "data_type": "STRING",
+        "description": "Shipment status"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.analytics.user_engagement",
+    "table_name": "user_engagement",
+    "table_schema": "analytics",
+    "description": "User engagement metrics including session duration, feature usage, and activity patterns",
+    "columns": [
+      {
+        "column_name": "user_id",
+        "data_type": "STRING",
+        "description": "User identifier"
+      },
+      {
+        "column_name": "date",
+        "data_type": "DATE",
+        "description": "Engagement date"
+      },
+      {
+        "column_name": "session_count",
+        "data_type": "INT64",
+        "description": "Number of sessions"
+      },
+      {
+        "column_name": "avg_session_duration",
+        "data_type": "FLOAT64",
+        "description": "Average session duration in minutes"
+      },
+      {
+        "column_name": "features_used",
+        "data_type": "STRING",
+        "description": "Comma-separated list of features used"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.sales.sales_forecast",
+    "table_name": "sales_forecast",
+    "table_schema": "sales",
+    "description": "Sales forecasting data with predicted revenue and confidence intervals",
+    "columns": [
+      {
+        "column_name": "forecast_date",
+        "data_type": "DATE",
+        "description": "Date of forecast"
+      },
+      {
+        "column_name": "product_category",
+        "data_type": "STRING",
+        "description": "Product category"
+      },
+      {
+        "column_name": "predicted_revenue",
+        "data_type": "FLOAT64",
+        "description": "Predicted revenue"
+      },
+      {
+        "column_name": "confidence_lower",
+        "data_type": "FLOAT64",
+        "description": "Lower confidence bound"
+      },
+      {
+        "column_name": "confidence_upper",
+        "data_type": "FLOAT64",
+        "description": "Upper confidence bound"
+      }
+    ]
+  },
+  {
+    "table_id": "my-project.customer.customer_feedback",
+    "table_name": "customer_feedback",
+    "table_schema": "customer",
+    "description": "Customer feedback and reviews including ratings, comments, and sentiment scores",
+    "columns": [
+      {
+        "column_name": "feedback_id",
+        "data_type": "STRING",
+        "description": "Feedback identifier"
+      },
+      {
+        "column_name": "customer_id",
+        "data_type": "STRING",
+        "description": "Customer identifier"
+      },
+      {
+        "column_name": "product_id",
+        "data_type": "STRING",
+        "description": "Product being reviewed"
+      },
+      {
+        "column_name": "rating",
+        "data_type": "INT64",
+        "description": "Rating score (1-5)"
+      },
+      {
+        "column_name": "comment",
+        "data_type": "STRING",
+        "description": "Customer comment"
+      },
+      {
+        "column_name": "sentiment_score",
+        "data_type": "FLOAT64",
+        "description": "Sentiment analysis score"
+      }
+    ]
+  }
+]
