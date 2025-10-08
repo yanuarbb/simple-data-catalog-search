@@ -21,7 +21,16 @@ class Config:
     TOP_K_RESULTS = int(os.getenv('TOP_K_RESULTS', '10'))
 
     # Cache configuration
-    CACHE_DIR = os.getenv('CACHE_DIR', 'data/cache')
+    # Convert to absolute path so it works from any directory
+    _cache_dir = os.getenv('CACHE_DIR', 'data/cache')
+    if not os.path.isabs(_cache_dir):
+        # If relative path, make it relative to project root (parent of src)
+        _script_dir = os.path.dirname(os.path.abspath(__file__))
+        _project_root = os.path.dirname(_script_dir)
+        CACHE_DIR = os.path.join(_project_root, _cache_dir)
+    else:
+        CACHE_DIR = _cache_dir
+
     USE_CACHE = os.getenv('USE_CACHE', 'true').lower() == 'true'
 
     # Mock data mode (for testing without BigQuery access)
