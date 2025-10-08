@@ -16,6 +16,15 @@ class BigQueryClient:
             self.client = None
         else:
             if Config.SERVICE_ACCOUNT_KEY_PATH:
+                # Validate that the service account key file exists
+                import os
+                if not os.path.exists(Config.SERVICE_ACCOUNT_KEY_PATH):
+                    print(f"Error: Service account key file not found at: {Config.SERVICE_ACCOUNT_KEY_PATH}")
+                    print("Please either:")
+                    print("  1. Set the correct path in .env file (SERVICE_ACCOUNT_KEY_PATH)")
+                    print("  2. Or use mock data by setting USE_MOCK_DATA=true")
+                    raise FileNotFoundError(f"Service account key not found: {Config.SERVICE_ACCOUNT_KEY_PATH}")
+
                 self.client = bigquery.Client.from_service_account_json(
                     Config.SERVICE_ACCOUNT_KEY_PATH,
                     project=Config.GCP_PROJECT_ID
@@ -128,7 +137,14 @@ class BigQueryClient:
     def _load_mock_data(self) -> List[Dict[str, str]]:
         """Load mock data from JSON file for testing"""
         try:
-            with open('data/mock_tables.json', 'r') as f:
+            # Get absolute path to mock data file
+            # Works from any directory by resolving relative to this file
+            import os
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(script_dir)  # Go up from src/ to project root
+            mock_data_path = os.path.join(project_root, 'data', 'mock_tables.json')
+
+            with open(mock_data_path, 'r') as f:
                 return json.load(f)
         except FileNotFoundError:
             print("Warning: Mock data file not found. Returning empty list.")
